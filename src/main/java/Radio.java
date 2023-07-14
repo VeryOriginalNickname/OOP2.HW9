@@ -19,19 +19,15 @@ public class Radio {
     }
 
     public void setVolumeDown() {
-        if (currentVolume == 0) {
-            currentVolume = currentVolume;
-        } else {
+        if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
     }
 
     public void setVolumeUp() {
-        if (currentVolume == 100) {
-            currentVolume = currentVolume;
-        } else {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
-
 }
+

@@ -5,7 +5,7 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchToNextRadioNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(2);
         radio.setRadioStationNext();
@@ -19,7 +19,7 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchToNextRadioNumberIs9() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(9);
         radio.setRadioStationNext();
@@ -32,7 +32,7 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchToPrevRadioNumber() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(3);
         radio.setRadioStationPrev();
 
@@ -44,7 +44,7 @@ public class RadioTest {
 
     @Test
     public void shouldSwitchToPrevRadioNumberIf0() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(0);
         radio.setRadioStationPrev();
 
@@ -56,7 +56,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSwitchRadioNumber10() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(5);
         radio.setCurrentRadioStationNumber(10);
@@ -70,7 +70,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSwitchRadioNumberMinus1() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(5);
         radio.setCurrentRadioStationNumber(-1);
@@ -84,7 +84,7 @@ public class RadioTest {
 
     @Test
     public void volumeUp() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(50);
         radio.setVolumeUp();
 
@@ -96,7 +96,7 @@ public class RadioTest {
 
     @Test
     public void volumeUpIf100() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(100);
         radio.setVolumeUp();
 
@@ -108,7 +108,7 @@ public class RadioTest {
 
     @Test
     public void volumeDown() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(50);
         radio.setVolumeDown();
 
@@ -120,7 +120,7 @@ public class RadioTest {
 
     @Test
     public void volumeDownIf0() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(0);
         radio.setVolumeDown();
 
@@ -132,7 +132,7 @@ public class RadioTest {
 
     @Test
     public void volume101() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(50);
         radio.setCurrentVolume(101);
 
@@ -144,7 +144,7 @@ public class RadioTest {
 
     @Test
     public void volumeMinus1() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(50);
         radio.setCurrentVolume(-1);
@@ -154,4 +154,16 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void totalTest() {
+        Radio radio = new Radio(8);
+
+
+        int expected = 8;
+        int actual = radio.getTotalStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
+

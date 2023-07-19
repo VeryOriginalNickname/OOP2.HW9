@@ -154,4 +154,37 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void totalTestPlusNextStationIfMax() {
+        Radio radio = new Radio(15);
+        radio.setCurrentRadioStationNumber(14);
+        radio.setRadioStationNext();
+
+
+        int expected1 = 15; //total Stations
+        int expected2 = 0; //Current Station (14->0)
+        int actual1 = radio.getTotalStation();
+        int actual2 = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected1, actual1);
+        Assertions.assertEquals(expected2, actual2);
+    }
+
+    @Test
+    public void totalTestPlusNextStationIfMaxWrong() {
+        Radio radio = new Radio(15);
+        radio.setCurrentRadioStationNumber(15);
+        radio.setRadioStationNext();
+
+
+        int expected1 = 15; //total Stations
+        int expected2 = 1; //Current Station (0->1)
+        int actual1 = radio.getTotalStation();
+        int actual2 = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected1, actual1);
+        Assertions.assertEquals(expected2, actual2);
+
+    }
 }

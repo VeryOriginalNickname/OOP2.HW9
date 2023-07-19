@@ -9,6 +9,11 @@ public class Radio {
 
     public Radio(int totalStation) {
         this.totalStation = totalStation;
+        maxStation = totalStation - 1;
+    }
+
+    public Radio() {
+        //Костыль
     }
 
     void setCurrentRadioStationNumber(int newRadioStationNumber) {
@@ -67,4 +72,3 @@ public class Radio {
         return totalStation;
     }
 }
-
